@@ -5,6 +5,7 @@ import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { CheckCircle2, FileText, Lock, Zap, Users, Shield } from 'lucide-react';
+import { AnimatedLogo } from '@/components/AnimatedLogo';
 
 export default function Home() {
   return (
@@ -12,11 +13,17 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <section className="relative px-4 sm:px-6 lg:px-8 py-16 lg:py-32">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 text-balance">
-            Digital Property Registration Made Simple
+          <div className="mb-8 flex justify-center">
+            <AnimatedLogo size={120} animate={true} />
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-2 text-balance">
+            eLand Register
           </h1>
+          <p className="text-xl sm:text-2xl text-foreground/80 mb-6 font-semibold text-balance">
+            Secure Digital Property Registration
+          </p>
           <p className="text-lg sm:text-xl text-foreground/70 mb-8 text-balance">
             Experience seamless property registration with secure digital documentation, instant verification, and hassle-free submission.
           </p>

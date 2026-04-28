@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { ArrowLeft, ArrowRight, Upload } from 'lucide-react';
 import Link from 'next/link';
+import { Header } from '@/components/Header';
 
 export default function Step3Page() {
   const router = useRouter();
@@ -55,17 +56,25 @@ export default function Step3Page() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Progress Bar */}
+      <Header />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Step Indicator */}
         <div className="mb-8">
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-3 mb-4">
             <Link href="/registration/step2">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="gap-2">
                 <ArrowLeft className="w-4 h-4" />
               </Button>
             </Link>
-            <h1 className="text-2xl font-bold text-primary">Property Registration</h1>
+            <h1 className="text-3xl font-bold text-primary">ID Verification</h1>
           </div>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="text-sm font-medium text-muted-foreground">Step 3 of 10</div>
+          </div>
+          <div className="w-full bg-muted rounded-full h-2">
+            <div className="bg-primary h-2 rounded-full transition-all" style={{ width: '30%' }}></div>
+          </div>
+        </div>
           <div className="w-full bg-muted rounded-full h-2">
             <div className="bg-primary h-2 rounded-full transition-all" style={{ width: '30%' }}></div>
           </div>
