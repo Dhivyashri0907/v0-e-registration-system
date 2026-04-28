@@ -18,7 +18,7 @@ export function AnimatedLogo({ size = 60, animate = true }: { size?: number; ani
       }}
     >
       <Image
-        src="/logo.png"
+        src="/logo.png?v=2"
         alt="eLand Register - Secure Digital Property Registration"
         width={size}
         height={size}
