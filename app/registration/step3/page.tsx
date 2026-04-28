@@ -75,11 +75,6 @@ export default function Step3Page() {
             <div className="bg-primary h-2 rounded-full transition-all" style={{ width: '30%' }}></div>
           </div>
         </div>
-          <div className="w-full bg-muted rounded-full h-2">
-            <div className="bg-primary h-2 rounded-full transition-all" style={{ width: '30%' }}></div>
-          </div>
-          <p className="text-sm text-foreground/60 mt-2">Step 3 of 10: ID Verification Documents</p>
-        </div>
 
         <Card className="max-w-2xl">
           <div className="p-8">
