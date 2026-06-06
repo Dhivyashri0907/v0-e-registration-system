@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eLand Register - Secure Digital Property Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #1f2937;
+        }
+
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f3a7d;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1f3a7d, #3b82f6);
+            transition: width 0.3s ease;
+        }
+
+        .step-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .step-info h2 {
+            font-size: 1.8rem;
+            color: #1f3a7d;
+            margin: 0;
+        }
+
+        .step-number {
+            font-size: 0.9rem;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f3a7d;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #dbeafe;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        .form-group .required {
+            color: #dc2626;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .error {
+            color: #dc2626;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .btn-back {
+            background: #f3f4f6;
+            color: #374151;
+            flex: 1;
+        }
+
+        .btn-back:hover {
+            background: #e5e7eb;
+        }
+
+        .btn-next {
+            background: #1f3a7d;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-next:hover {
+            background: #1e2a5f;
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .success-message h2 {
+            font-size: 1.8rem;
+            color: #1f3a7d;
+            margin-bottom: 1rem;
+        }
+
+        .app-number {
+            background: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+
+        .app-number-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f3a7d;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-wrap: wrap;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-28%20at%205.23.24%20PM-sOhyVxL68GzZWCNxhIZOHlsJ7T02mQ.jpeg" alt="eLand Logo" class="logo">
+        <div class="logo-text">
+            <h1>eLand Register</h1>
+            <p>Secure Digital Property Registration</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="step-info">
+            <h2 id="stepTitle">Bank Details</h2>
+            <div class="step-number"><span id="stepCounter">1 of 9</span></div>
+        </div>
+
+        <div class="form-card" id="formContainer"></div>
+    </div>
+
+    <script>
+        const steps = [
+            {
+                title: 'Bank Details',
+                fields: [
+                    { name: 'accountNumber', label: 'Account Number', type: 'text', required: true },
+                    { name: 'ifscCode', label: 'IFSC Code', type: 'text', required: true },
+                    { name: 'bankName', label: 'Bank Name', type: 'text', required: true },
+                    { name: 'branch', label: 'Branch', type: 'text', required: true },
+                    { name: 'accountType', label: 'Account Type', type: 'select', options: ['Savings', 'Current'], required: true },
+                    { name: 'mobileNumber', label: 'Mobile Number', type: 'tel', required: true },
+                    { name: 'micrCode', label: 'MICR Code', type: 'text', required: false }
+                ]
+            },
+            {
+                title: 'Personal Information',
+                fields: [
+                    { name: 'fullName', label: 'Full Name', type: 'text', required: true },
+                    { name: 'email', label: 'Email Address', type: 'email', required: true },
+                    { name: 'dateOfBirth', label: 'Date of Birth', type: 'date', required: true },
+                    { name: 'age', label: 'Age', type: 'number', required: false },
+                    { name: 'gender', label: 'Gender', type: 'select', options: ['Male', 'Female', 'Other'], required: false },
+                    { name: 'currentAddress', label: 'Current Address', type: 'textarea', required: false },
+                    { name: 'permanentAddress', label: 'Permanent Address', type: 'textarea', required: false },
+                    { name: 'taluk', label: 'Taluk', type: 'text', required: false },
+                    { name: 'state', label: 'State', type: 'text', required: false },
+                    { name: 'pinCode', label: 'PIN Code', type: 'text', required: false }
+                ]
+            },
+            {
+                title: 'ID Verification',
+                fields: [
+                    { name: 'panCard', label: 'PAN Card Number', type: 'text', required: true },
+                    { name: 'aadharNumber', label: 'Aadhaar Number', type: 'text', required: false },
+                    { name: 'passportNumber', label: 'Passport Number', type: 'text', required: false },
+                    { name: 'drivingLicenseNumber', label: 'Driving License Number', type: 'text', required: false }
+                ]
+            },
+            {
+                title: 'Property Details',
+                fields: [
+                    { name: 'propertyType', label: 'Property Type', type: 'select', options: ['Residential', 'Commercial', 'Land'], required: true },
+                    { name: 'totalArea', label: 'Total Area (Sq.Ft)', type: 'number', required: true },
+                    { name: 'plotNumber', label: 'Plot Number', type: 'text', required: true },
+                    { name: 'propTaluk', label: 'Taluk', type: 'text', required: false },
+                    { name: 'propDistrict', label: 'District', type: 'text', required: false },
+                    { name: 'propState', label: 'State', type: 'text', required: false }
+                ]
+            },
+            {
+                title: 'Party Details',
+                fields: [
+                    { name: 'sellerName', label: 'Seller Name', type: 'text', required: true },
+                    { name: 'sellerAddress', label: 'Seller Address', type: 'textarea', required: true },
+                    { name: 'buyerName', label: 'Buyer Name', type: 'text', required: true },
+                    { name: 'buyerAddress', label: 'Buyer Address', type: 'textarea', required: true },
+                    { name: 'amount', label: 'Sale Amount', type: 'number', required: true }
+                ]
+            },
+            {
+                title: 'Deed & Payment',
+                fields: [
+                    { name: 'deedType', label: 'Deed Type', type: 'select', options: ['Sale Deed', 'Gift Deed', 'Lease Deed'], required: true },
+                    { name: 'stampDuty', label: 'Stamp Duty Amount', type: 'number', required: true },
+                    { name: 'registrationFee', label: 'Registration Fee', type: 'number', required: true },
+                    { name: 'totalAmount', label: 'Total Amount', type: 'number', required: true }
+                ]
+            },
+            {
+                title: 'Witness Details',
+                fields: [
+                    { name: 'witness1Name', label: 'Witness 1 Name', type: 'text', required: true },
+                    { name: 'witness1Address', label: 'Witness 1 Address', type: 'textarea', required: true },
+                    { name: 'witness1Phone', label: 'Witness 1 Phone', type: 'tel', required: true },
+                    { name: 'witness2Name', label: 'Witness 2 Name', type: 'text', required: true },
+                    { name: 'witness2Address', label: 'Witness 2 Address', type: 'textarea', required: true },
+                    { name: 'witness2Phone', label: 'Witness 2 Phone', type: 'tel', required: true }
+                ]
+            },
+            {
+                title: 'Digital Signature',
+                fields: [
+                    { name: 'signatureConsent', label: 'I confirm the above details are correct', type: 'checkbox', required: true }
+                ]
+            },
+            {
+                title: 'Review & Submit',
+                fields: []
+            }
+        ];
+
+        let currentStep = 0;
+        let formData = {};
+
+        function updateProgress() {
+            const progress = ((currentStep) / (steps.length - 1)) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('stepTitle').textContent = steps[currentStep].title;
+            document.getElementById('stepCounter').textContent = (currentStep + 1) + ' of ' + steps.length;
+        }
+
+        function renderForm() {
+            const container = document.getElementById('formContainer');
+            const step = steps[currentStep];
+
+            if (currentStep === steps.length - 1) {
+                container.innerHTML = `
+                    <div class="success-message">
+                        <div class="success-icon">✓</div>
+                        <h2>Successfully Submitted!</h2>
+                        <p>Your property registration has been submitted.</p>
+                        <div class="app-number">
+                            <label>Application Number:</label>
+                            <div class="app-number-value">APP${Date.now().toString().slice(-8)}</div>
+                        </div>
+                        <button class="btn-next" onclick="location.reload()" style="width: 200px; margin: 1rem auto;">Start New</button>
+                    </div>
+                `;
+            } else {
+                let html = '<form id="stepForm">';
+                if (step.fields.length > 0) {
+                    html += '<div class="form-grid">';
+                    
+                    step.fields.forEach(field => {
+                        html += '<div class="form-group">';
+                        html += '<label>' + field.label + (field.required ? '<span class="required">*</span>' : '') + '</label>';
+                        
+                        if (field.type === 'select') {
+                            html += '<select name="' + field.name + '" required="' + field.required + '">';
+                            html += '<option value="">Select</option>';
+                            field.options.forEach(opt => {
+                                html += '<option value="' + opt + '">' + opt + '</option>';
+                            });
+                            html += '</select>';
+                        } else if (field.type === 'textarea') {
+                            html += '<textarea name="' + field.name + '" required="' + field.required + '"></textarea>';
+                        } else if (field.type === 'checkbox') {
+                            html += '<input type="checkbox" name="' + field.name + '" required="' + field.required + '"> ' + field.label;
+                        } else {
+                            html += '<input type="' + field.type + '" name="' + field.name + '" required="' + field.required + '">';
+                        }
+                        
+                        html += '<div class="error" id="error-' + field.name + '"></div>';
+                        html += '</div>';
+                    });
+                    
+                    html += '</div>';
+                }
+
+                html += '<div class="buttons">';
+                if (currentStep > 0) {
+                    html += '<button type="button" class="btn-back" onclick="previousStep()">← Back</button>';
+                }
+                html += '<button type="button" class="btn-next" onclick="nextStep()">Next →</button>';
+                html += '</div></form>';
+                
+                container.innerHTML = html;
+            }
+
+            updateProgress();
+        }
+
+        function validateStep() {
+            const form = document.getElementById('stepForm');
+            if (!form) return true;
+
+            const inputs = form.querySelectorAll('input, select, textarea');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                const errorEl = document.getElementById('error-' + input.name);
+                if (errorEl) errorEl.textContent = '';
+
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    if (errorEl) errorEl.textContent = 'This field is required';
+                    isValid = false;
+                }
+                
+                formData[input.name] = input.value;
+            });
+
+            return isValid;
+        }
+
+        function nextStep() {
+            if (!validateStep()) return;
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                renderForm();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                renderForm();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        renderForm();
+    </script>
+</body>
+</html>
