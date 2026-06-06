@@ -12,114 +12,153 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background-color: #f8f9fa;
-            color: #1f2937;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
         }
 
         header {
             background: white;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #003d82;
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         .logo {
-            width: 50px;
-            height: 50px;
-            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
             animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-10px); }
         }
 
-        .logo-text h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1f3a7d;
-            margin: 0;
+        h1 {
+            color: #003d82;
+            font-size: 28px;
+            margin-bottom: 5px;
         }
 
-        .logo-text p {
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin: 0;
+        .subtitle {
+            color: #666;
+            font-size: 14px;
         }
 
         .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 1rem;
+        .landing-page {
+            text-align: center;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #1f3a7d, #3b82f6);
-            transition: width 0.3s ease;
+        .landing-page h2 {
+            font-size: 24px;
+            color: #003d82;
+            margin-bottom: 20px;
         }
 
-        .step-info {
+        .landing-page p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .registration-page {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .step-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
-        .step-info h2 {
-            font-size: 1.8rem;
-            color: #1f3a7d;
+        .back-btn {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .back-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .step-title {
+            font-size: 22px;
+            color: #003d82;
+            flex: 1;
             margin: 0;
         }
 
         .step-number {
-            font-size: 0.9rem;
-            color: #6b7280;
-            background: #f3f4f6;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 15px;
         }
 
-        .form-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #003d82;
+            transition: width 0.3s;
         }
 
         .form-section {
-            margin-bottom: 2rem;
+            margin-bottom: 25px;
         }
 
-        .form-section h3 {
-            font-size: 1.1rem;
+        .section-title {
+            font-size: 14px;
             font-weight: 600;
-            color: #1f3a7d;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #dbeafe;
+            color: #003d82;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
         }
 
-        .form-grid {
+        .form-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
         }
 
         .form-group {
@@ -127,132 +166,112 @@
             flex-direction: column;
         }
 
-        .form-group label {
-            font-size: 0.95rem;
+        label {
+            font-size: 13px;
             font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: #374151;
+            color: #333;
+            margin-bottom: 6px;
         }
 
-        .form-group .required {
-            color: #dc2626;
+        .required {
+            color: red;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 0.95rem;
+        input, select, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
             font-family: inherit;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            border-color: #003d82;
+            box-shadow: 0 0 5px rgba(0,61,130,0.2);
         }
 
-        .form-group textarea {
+        textarea {
             resize: vertical;
             min-height: 80px;
         }
 
-        .error {
-            color: #dc2626;
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-        }
-
-        .buttons {
+        .button-group {
             display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #e5e7eb;
+            gap: 15px;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
         }
 
-        button {
-            padding: 0.75rem 1.5rem;
+        .btn {
+            background-color: #003d82;
+            color: white;
+            padding: 12px 30px;
             border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 500;
+            border-radius: 4px;
+            font-size: 14px;
             cursor: pointer;
         }
 
-        .btn-back {
-            background: #f3f4f6;
-            color: #374151;
-            flex: 1;
+        .btn:hover {
+            background-color: #002a5f;
         }
 
-        .btn-back:hover {
-            background: #e5e7eb;
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #333;
         }
 
-        .btn-next {
-            background: #1f3a7d;
-            color: white;
-            flex: 1;
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
         }
 
-        .btn-next:hover {
-            background: #1e2a5f;
-        }
-
-        .success-message {
+        .success-page {
             text-align: center;
-            padding: 2rem;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .success-icon {
-            width: 80px;
-            height: 80px;
-            background: #10b981;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 3rem;
-            color: white;
+            font-size: 60px;
+            color: #4caf50;
+            margin-bottom: 20px;
         }
 
-        .success-message h2 {
-            font-size: 1.8rem;
-            color: #1f3a7d;
-            margin-bottom: 1rem;
+        .success-page h2 {
+            font-size: 24px;
+            color: #003d82;
+            margin-bottom: 15px;
         }
 
-        .app-number {
-            background: #f3f4f6;
-            padding: 1.5rem;
-            border-radius: 6px;
-            margin: 1.5rem 0;
+        .success-details {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
         }
 
-        .app-number-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1f3a7d;
-            font-family: 'Courier New', monospace;
+        .success-details p {
+            margin: 10px 0;
+            font-size: 14px;
+            text-align: left;
         }
 
-        @media (max-width: 768px) {
-            .form-grid {
+        @media (max-width: 600px) {
+            .form-row {
                 grid-template-columns: 1fr;
             }
 
-            header {
-                flex-wrap: wrap;
+            .button-group {
+                flex-direction: column;
             }
 
-            .buttons {
-                flex-direction: column;
+            .btn {
+                width: 100%;
             }
         }
     </style>
@@ -260,226 +279,604 @@
 <body>
     <header>
         <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-28%20at%205.23.24%20PM-sOhyVxL68GzZWCNxhIZOHlsJ7T02mQ.jpeg" alt="eLand Logo" class="logo">
-        <div class="logo-text">
-            <h1>eLand Register</h1>
-            <p>Secure Digital Property Registration</p>
-        </div>
+        <h1>eLand Register</h1>
+        <p class="subtitle">Secure Digital Property Registration</p>
     </header>
 
     <div class="container">
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-        <div class="step-info">
-            <h2 id="stepTitle">Bank Details</h2>
-            <div class="step-number"><span id="stepCounter">1 of 9</span></div>
+        <!-- Landing Page -->
+        <div id="landingPage" class="landing-page">
+            <h2>Welcome to eLand Register</h2>
+            <p>Start your property registration journey with our secure digital platform</p>
+            <button class="btn" onclick="startRegistration()">Start Registration</button>
         </div>
 
-        <div class="form-card" id="formContainer"></div>
+        <!-- Step 1: Bank Details -->
+        <div id="step1" class="registration-page hidden">
+            <div class="step-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <h2 class="step-title">Bank Details</h2>
+            </div>
+            <div class="step-number">Step 1 of 9</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 11.11%"></div></div>
+
+            <form onsubmit="nextStep(event, 2)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Account Number <span class="required">*</span></label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>IFSC Code <span class="required">*</span></label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Bank Name <span class="required">*</span></label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Branch</label>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Account Type</label>
+                        <select>
+                            <option value="">Select</option>
+                            <option>Savings</option>
+                            <option>Current</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="tel">
+                    </div>
+                </div>
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label>MICR Code</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goLanding()">Cancel</button>
+                    <button type="submit" class="btn">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 2: Personal Information -->
+        <div id="step2" class="registration-page hidden">
+            <div class="step-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <h2 class="step-title">Personal Information</h2>
+            </div>
+            <div class="step-number">Step 2 of 9</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 22.22%"></div></div>
+
+            <form onsubmit="nextStep(event, 3)">
+                <div class="form-section">
+                    <div class="section-title">Contact Details</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Mobile Number <span class="required">*</span></label>
+                            <input type="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Personal Details</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth <span class="required">*</span></label>
+                            <input type="date" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number">
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select>
+                                <option value="">Select</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Father's/Mother's Name</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Address Information</div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Current Address</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Permanent Address</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Taluk</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>PIN Code</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                    <button type="submit" class="btn">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 3: ID Verification -->
+        <div id="step3" class="registration-page hidden">
+            <div class="step-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <h2 class="step-title">ID Verification</h2>
+            </div>
+            <div class="step-number">Step 3 of 9</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 33.33%"></div></div>
+
+            <form onsubmit="nextStep(event, 4)">
+                <div class="form-section">
+                    <div class="section-title">Documents</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>PAN Card Number <span class="required">*</span></label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Aadhaar Number</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Passport Number</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>Driving License Number</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                    <button type="submit" class="btn">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 4: Property Details -->
+        <div id="step4" class="registration-page hidden">
+            <div class="step-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <h2 class="step-title">Property Details</h2>
+            </div>
+            <div class="step-number">Step 4 of 9</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 44.44%"></div></div>
+
+            <form onsubmit="nextStep(event, 5)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Property Type <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select</option>
+                            <option>Residential</option>
+                            <option>Commercial</option>
+                            <option>Land</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Area (Sq.Ft) <span class="required">*</span></label>
+                        <input type="number" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Plot Number <span class="required">*</span></label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Build Up Area (Sq.Ft)</label>
+                        <input type="number">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Village/Taluk <span class="required">*</span></label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>District <span class="required">*</span></label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>North</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>South</label>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>East</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>West</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                    <button type="submit" class="btn">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 5: Party Details -->
+        <div id="step5" class="registration-page hidden">
+            <div class="step-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <h2 class="step-title">Party Details</h2>
+            </div>
+            <div class="step-number">Step 5 of 9</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 55.55%"></div></div>
+
+            <form onsubmit="nextStep(event, 6)">
+                <div class="form-section">
+                    <div class="section-title">Seller Details</div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Address <span class="required">*</span></label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Buyer Details</div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Address <span class="required">*</span></label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                    <button type="submit" class="btn">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 6: Deed & Payment -->
+        <div id="step6" class="registration-page hidden">
+            <div class="step-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <h2 class="step-title">Deed & Payment</h2>
+            </div>
+            <div class="step-number">Step 6 of 9</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 66.66%"></div></div>
+
+            <form onsubmit="nextStep(event, 7)">
+                <div class="form-section">
+                    <div class="section-title">Stamp Duty Details</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Stamp Duty Amount <span class="required">*</span></label>
+                            <input type="number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Registration Fee <span class="required">*</span></label>
+                            <input type="number" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Service Charge</label>
+                            <input type="number">
+                        </div>
+                        <div class="form-group">
+                            <label>Total Amount <span class="required">*</span></label>
+                            <input type="number" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                    <button type="submit" class="btn">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 7: Witness Details -->
+        <div id="step7" class="registration-page hidden">
+            <div class="step-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <h2 class="step-title">Witness Details</h2>
+            </div>
+            <div class="step-number">Step 7 of 9</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 77.77%"></div></div>
+
+            <form onsubmit="nextStep(event, 8)">
+                <div class="form-section">
+                    <div class="section-title">Witness 1</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number <span class="required">*</span></label>
+                            <input type="tel" required>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">Witness 2</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number <span class="required">*</span></label>
+                            <input type="tel" required>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                    <button type="submit" class="btn">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 8: Digital Signature -->
+        <div id="step8" class="registration-page hidden">
+            <div class="step-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <h2 class="step-title">Digital Signature</h2>
+            </div>
+            <div class="step-number">Step 8 of 9</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 88.88%"></div></div>
+
+            <form onsubmit="nextStep(event, 9)">
+                <div class="form-section">
+                    <div class="section-title">Your Signature</div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>Sign Below <span class="required">*</span></label>
+                            <canvas id="signatureCanvas" style="border: 1px solid #ccc; border-radius: 4px; display: block; width: 100%; height: 200px; cursor: crosshair; background: white;"></canvas>
+                            <button type="button" class="btn btn-secondary" style="margin-top: 10px; width: auto;" onclick="clearSignature()">Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                    <button type="submit" class="btn">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 9: Review & Submit -->
+        <div id="step9" class="registration-page hidden">
+            <div class="step-header">
+                <button class="back-btn" onclick="goBack()">← Back</button>
+                <h2 class="step-title">Review & Submit</h2>
+            </div>
+            <div class="step-number">Step 9 of 9</div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+
+            <form onsubmit="submitForm(event)">
+                <div class="form-section">
+                    <p style="margin-bottom: 20px;">Please review all your details before submitting. Once submitted, your application will be processed.</p>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Back</button>
+                    <button type="submit" class="btn">Submit Application</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Success Page -->
+        <div id="successPage" class="success-page hidden">
+            <div class="success-icon">✓</div>
+            <h2>Application Submitted Successfully</h2>
+            <p>Your property registration application has been received.</p>
+            <div class="success-details">
+                <p><strong>Application Number:</strong> <span id="appNumber"></span></p>
+                <p><strong>Date & Time:</strong> <span id="submitTime"></span></p>
+            </div>
+            <button class="btn" onclick="startOver()">Start New Application</button>
+        </div>
     </div>
 
     <script>
-        const steps = [
-            {
-                title: 'Bank Details',
-                fields: [
-                    { name: 'accountNumber', label: 'Account Number', type: 'text', required: true },
-                    { name: 'ifscCode', label: 'IFSC Code', type: 'text', required: true },
-                    { name: 'bankName', label: 'Bank Name', type: 'text', required: true },
-                    { name: 'branch', label: 'Branch', type: 'text', required: true },
-                    { name: 'accountType', label: 'Account Type', type: 'select', options: ['Savings', 'Current'], required: true },
-                    { name: 'mobileNumber', label: 'Mobile Number', type: 'tel', required: true },
-                    { name: 'micrCode', label: 'MICR Code', type: 'text', required: false }
-                ]
-            },
-            {
-                title: 'Personal Information',
-                fields: [
-                    { name: 'fullName', label: 'Full Name', type: 'text', required: true },
-                    { name: 'email', label: 'Email Address', type: 'email', required: true },
-                    { name: 'dateOfBirth', label: 'Date of Birth', type: 'date', required: true },
-                    { name: 'age', label: 'Age', type: 'number', required: false },
-                    { name: 'gender', label: 'Gender', type: 'select', options: ['Male', 'Female', 'Other'], required: false },
-                    { name: 'currentAddress', label: 'Current Address', type: 'textarea', required: false },
-                    { name: 'permanentAddress', label: 'Permanent Address', type: 'textarea', required: false },
-                    { name: 'taluk', label: 'Taluk', type: 'text', required: false },
-                    { name: 'state', label: 'State', type: 'text', required: false },
-                    { name: 'pinCode', label: 'PIN Code', type: 'text', required: false }
-                ]
-            },
-            {
-                title: 'ID Verification',
-                fields: [
-                    { name: 'panCard', label: 'PAN Card Number', type: 'text', required: true },
-                    { name: 'aadharNumber', label: 'Aadhaar Number', type: 'text', required: false },
-                    { name: 'passportNumber', label: 'Passport Number', type: 'text', required: false },
-                    { name: 'drivingLicenseNumber', label: 'Driving License Number', type: 'text', required: false }
-                ]
-            },
-            {
-                title: 'Property Details',
-                fields: [
-                    { name: 'propertyType', label: 'Property Type', type: 'select', options: ['Residential', 'Commercial', 'Land'], required: true },
-                    { name: 'totalArea', label: 'Total Area (Sq.Ft)', type: 'number', required: true },
-                    { name: 'plotNumber', label: 'Plot Number', type: 'text', required: true },
-                    { name: 'propTaluk', label: 'Taluk', type: 'text', required: false },
-                    { name: 'propDistrict', label: 'District', type: 'text', required: false },
-                    { name: 'propState', label: 'State', type: 'text', required: false }
-                ]
-            },
-            {
-                title: 'Party Details',
-                fields: [
-                    { name: 'sellerName', label: 'Seller Name', type: 'text', required: true },
-                    { name: 'sellerAddress', label: 'Seller Address', type: 'textarea', required: true },
-                    { name: 'buyerName', label: 'Buyer Name', type: 'text', required: true },
-                    { name: 'buyerAddress', label: 'Buyer Address', type: 'textarea', required: true },
-                    { name: 'amount', label: 'Sale Amount', type: 'number', required: true }
-                ]
-            },
-            {
-                title: 'Deed & Payment',
-                fields: [
-                    { name: 'deedType', label: 'Deed Type', type: 'select', options: ['Sale Deed', 'Gift Deed', 'Lease Deed'], required: true },
-                    { name: 'stampDuty', label: 'Stamp Duty Amount', type: 'number', required: true },
-                    { name: 'registrationFee', label: 'Registration Fee', type: 'number', required: true },
-                    { name: 'totalAmount', label: 'Total Amount', type: 'number', required: true }
-                ]
-            },
-            {
-                title: 'Witness Details',
-                fields: [
-                    { name: 'witness1Name', label: 'Witness 1 Name', type: 'text', required: true },
-                    { name: 'witness1Address', label: 'Witness 1 Address', type: 'textarea', required: true },
-                    { name: 'witness1Phone', label: 'Witness 1 Phone', type: 'tel', required: true },
-                    { name: 'witness2Name', label: 'Witness 2 Name', type: 'text', required: true },
-                    { name: 'witness2Address', label: 'Witness 2 Address', type: 'textarea', required: true },
-                    { name: 'witness2Phone', label: 'Witness 2 Phone', type: 'tel', required: true }
-                ]
-            },
-            {
-                title: 'Digital Signature',
-                fields: [
-                    { name: 'signatureConsent', label: 'I confirm the above details are correct', type: 'checkbox', required: true }
-                ]
-            },
-            {
-                title: 'Review & Submit',
-                fields: []
-            }
-        ];
+        let currentStep = 'landing';
+        let signatureCanvas = null;
+        let isDrawing = false;
 
-        let currentStep = 0;
-        let formData = {};
-
-        function updateProgress() {
-            const progress = ((currentStep) / (steps.length - 1)) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-            document.getElementById('stepTitle').textContent = steps[currentStep].title;
-            document.getElementById('stepCounter').textContent = (currentStep + 1) + ' of ' + steps.length;
+        function startRegistration() {
+            showStep('step1');
         }
 
-        function renderForm() {
-            const container = document.getElementById('formContainer');
-            const step = steps[currentStep];
-
-            if (currentStep === steps.length - 1) {
-                container.innerHTML = `
-                    <div class="success-message">
-                        <div class="success-icon">✓</div>
-                        <h2>Successfully Submitted!</h2>
-                        <p>Your property registration has been submitted.</p>
-                        <div class="app-number">
-                            <label>Application Number:</label>
-                            <div class="app-number-value">APP${Date.now().toString().slice(-8)}</div>
-                        </div>
-                        <button class="btn-next" onclick="location.reload()" style="width: 200px; margin: 1rem auto;">Start New</button>
-                    </div>
-                `;
-            } else {
-                let html = '<form id="stepForm">';
-                if (step.fields.length > 0) {
-                    html += '<div class="form-grid">';
-                    
-                    step.fields.forEach(field => {
-                        html += '<div class="form-group">';
-                        html += '<label>' + field.label + (field.required ? '<span class="required">*</span>' : '') + '</label>';
-                        
-                        if (field.type === 'select') {
-                            html += '<select name="' + field.name + '" required="' + field.required + '">';
-                            html += '<option value="">Select</option>';
-                            field.options.forEach(opt => {
-                                html += '<option value="' + opt + '">' + opt + '</option>';
-                            });
-                            html += '</select>';
-                        } else if (field.type === 'textarea') {
-                            html += '<textarea name="' + field.name + '" required="' + field.required + '"></textarea>';
-                        } else if (field.type === 'checkbox') {
-                            html += '<input type="checkbox" name="' + field.name + '" required="' + field.required + '"> ' + field.label;
-                        } else {
-                            html += '<input type="' + field.type + '" name="' + field.name + '" required="' + field.required + '">';
-                        }
-                        
-                        html += '<div class="error" id="error-' + field.name + '"></div>';
-                        html += '</div>';
-                    });
-                    
-                    html += '</div>';
-                }
-
-                html += '<div class="buttons">';
-                if (currentStep > 0) {
-                    html += '<button type="button" class="btn-back" onclick="previousStep()">← Back</button>';
-                }
-                html += '<button type="button" class="btn-next" onclick="nextStep()">Next →</button>';
-                html += '</div></form>';
-                
-                container.innerHTML = html;
-            }
-
-            updateProgress();
+        function goLanding() {
+            showStep('landing');
         }
 
-        function validateStep() {
-            const form = document.getElementById('stepForm');
-            if (!form) return true;
+        function goBack() {
+            const steps = ['landing', 'step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7', 'step8', 'step9', 'success'];
+            const currentIndex = steps.indexOf(currentStep);
+            if (currentIndex > 0) {
+                showStep(steps[currentIndex - 1]);
+            }
+        }
 
-            const inputs = form.querySelectorAll('input, select, textarea');
-            let isValid = true;
-
-            inputs.forEach(input => {
-                const errorEl = document.getElementById('error-' + input.name);
-                if (errorEl) errorEl.textContent = '';
-
-                if (input.hasAttribute('required') && !input.value.trim()) {
-                    if (errorEl) errorEl.textContent = 'This field is required';
-                    isValid = false;
-                }
-                
-                formData[input.name] = input.value;
+        function showStep(step) {
+            document.querySelectorAll('.landing-page, .registration-page, .success-page').forEach(el => {
+                el.classList.add('hidden');
             });
+            document.getElementById(step === 'success' ? 'successPage' : step).classList.remove('hidden');
+            currentStep = step;
 
-            return isValid;
-        }
-
-        function nextStep() {
-            if (!validateStep()) return;
-            if (currentStep < steps.length - 1) {
-                currentStep++;
-                renderForm();
-                window.scrollTo(0, 0);
+            if (step === 'step8') {
+                setTimeout(initSignatureCanvas, 100);
             }
+
+            window.scrollTo(0, 0);
         }
 
-        function previousStep() {
-            if (currentStep > 0) {
-                currentStep--;
-                renderForm();
-                window.scrollTo(0, 0);
+        function nextStep(event, nextStepNum) {
+            event.preventDefault();
+            const form = event.target;
+            
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
             }
+
+            showStep(`step${nextStepNum}`);
         }
 
-        renderForm();
+        function initSignatureCanvas() {
+            signatureCanvas = document.getElementById('signatureCanvas');
+            if (!signatureCanvas) return;
+
+            const ctx = signatureCanvas.getContext('2d');
+            signatureCanvas.width = signatureCanvas.offsetWidth;
+            signatureCanvas.height = 200;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#003d82';
+
+            signatureCanvas.addEventListener('mousedown', (e) => startDrawing(e, ctx));
+            signatureCanvas.addEventListener('mousemove', (e) => draw(e, ctx));
+            signatureCanvas.addEventListener('mouseup', stopDrawing);
+            signatureCanvas.addEventListener('mouseout', stopDrawing);
+
+            signatureCanvas.addEventListener('touchstart', (e) => startDrawing(e, ctx));
+            signatureCanvas.addEventListener('touchmove', (e) => draw(e, ctx));
+            signatureCanvas.addEventListener('touchend', stopDrawing);
+        }
+
+        function startDrawing(e, ctx) {
+            isDrawing = true;
+            const rect = signatureCanvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        function draw(e, ctx) {
+            if (!isDrawing) return;
+            const rect = signatureCanvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function clearSignature() {
+            const ctx = signatureCanvas.getContext('2d');
+            ctx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const appNumber = 'APP' + Date.now();
+            document.getElementById('appNumber').textContent = appNumber;
+            document.getElementById('submitTime').textContent = new Date().toLocaleString();
+            showStep('success');
+        }
+
+        function startOver() {
+            showStep('landing');
+        }
     </script>
 </body>
 </html>
